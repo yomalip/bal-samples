@@ -1,11 +1,11 @@
 import ballerina/http;
 import ballerina/lang.runtime;
 
-// configurable string apiKey = ?;
-// configurable string deploymentId = ?;
-// configurable string apiVersion = ?;
-// configurable string serviceUrl = ?;
-// configurable string weatherApiKey = ?;
+configurable string apiKey = ?;
+configurable string deploymentId = ?;
+configurable string apiVersion = ?;
+configurable string serviceUrl = ?;
+configurable string weatherApiKey = ?;
 
 public type ChatRequest record {|
     string chat_instance_id;
