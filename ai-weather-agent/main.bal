@@ -1,11 +1,11 @@
 import ballerina/http;
 import ballerinax/ai.agent;
-import ballerina/os;
 
-string apiKey = os:getEnv("API_KEY");
-string deploymentId = "gpt4o";
-string apiVersion = "2023-07-01-preview";
-string serviceUrl = "https://ballerina-ai-eastus.openai.azure.com/openai";
+configurable string apiKey = ?;
+configurable string deploymentId = ?;
+configurable string apiVersion = ?;
+configurable string serviceUrl = ?;
+
 
 final agent:Model model = check new agent:AzureOpenAiModel(serviceUrl, apiKey, deploymentId, apiVersion);
 final agent:Agent agent = check new (
@@ -25,7 +25,7 @@ isolated function getWeather(string city) returns string {
     return "The weather in " + city + " is 25°C with clear skies.";
 }
 
-service on new agent:Listener(8080) {
+service on new agent:Listener(9090) {
     resource function post chat(@http:Payload agent:ChatReqMessage request) 
         returns agent:ChatRespMessage|error {
         string response = check agent->run(request.message, memoryId = request.sessionId);
