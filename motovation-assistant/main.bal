@@ -1,6 +1,5 @@
 import ballerina/http;
 import ballerinax/ai.agent;
-import ballerina/os;
 
 configurable string apiKey = ?;
 configurable string deploymentId = ?;
