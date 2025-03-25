@@ -8,7 +8,7 @@ service / on new http:Listener(9090) {
     }
 }
 
-service / on new http:Listener(9099) {
+service / on new http:Listener(8090) {
 
     // This function responds with `string` value `Hello, World!` to HTTP GET requests.
     resource function get xyz() returns string {
